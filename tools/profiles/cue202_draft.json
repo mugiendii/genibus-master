@@ -1,0 +1,445 @@
+{
+ "name": "CUE202 (DRAFT - item names unknown)",
+ "family": 2,
+ "type": 5,
+ "source": "DRAFT built from an INFO sweep of the unit (2026-11-26): only IDs with scaling and a unit are listed. Names and meanings are NOT known; get Grundfos' CUE GENIbus functional profile and replace the labels. Note this CUE answers every ID (255 = no data) and does not reject unknown ones.",
+ "notes": "DRAFT: labels are 'class/ID (unit)' only. Verify each against the CUE display before relying on it. No commands: the CUE drives a pump, and commands/setpoints must come from Grundfos' profile.",
+ "items": [
+  {
+   "name": "unit_family",
+   "label": "Unit family",
+   "cls": 2,
+   "id": 148,
+   "size": 1
+  },
+  {
+   "name": "unit_type",
+   "label": "Unit type",
+   "cls": 2,
+   "id": 149,
+   "size": 1
+  },
+  {
+   "name": "id24",
+   "label": "2/24 (h, 16-bit)",
+   "cls": 2,
+   "id": 24,
+   "size": 2
+  },
+  {
+   "name": "id26",
+   "label": "2/26 (A)",
+   "cls": 2,
+   "id": 26,
+   "size": 1
+  },
+  {
+   "name": "id27",
+   "label": "2/27 (V)",
+   "cls": 2,
+   "id": 27,
+   "size": 1
+  },
+  {
+   "name": "id28",
+   "label": "2/28 (degC)",
+   "cls": 2,
+   "id": 28,
+   "size": 1
+  },
+  {
+   "name": "id29",
+   "label": "2/29 (degC)",
+   "cls": 2,
+   "id": 29,
+   "size": 1
+  },
+  {
+   "name": "id30",
+   "label": "2/30 (A)",
+   "cls": 2,
+   "id": 30,
+   "size": 1
+  },
+  {
+   "name": "id32",
+   "label": "2/32 (Hz)",
+   "cls": 2,
+   "id": 32,
+   "size": 1
+  },
+  {
+   "name": "id33",
+   "label": "2/33 (W)",
+   "cls": 2,
+   "id": 33,
+   "size": 1
+  },
+  {
+   "name": "id34",
+   "label": "2/34 (W)",
+   "cls": 2,
+   "id": 34,
+   "size": 1
+  },
+  {
+   "name": "id35",
+   "label": "2/35 (rpm, 16-bit)",
+   "cls": 2,
+   "id": 35,
+   "size": 2
+  },
+  {
+   "name": "id37",
+   "label": "2/37 (bar)",
+   "cls": 2,
+   "id": 37,
+   "size": 1
+  },
+  {
+   "name": "id38",
+   "label": "2/38 (%)",
+   "cls": 2,
+   "id": 38,
+   "size": 1
+  },
+  {
+   "name": "id39",
+   "label": "2/39 (%)",
+   "cls": 2,
+   "id": 39,
+   "size": 1
+  },
+  {
+   "name": "id40",
+   "label": "2/40 (bar)",
+   "cls": 2,
+   "id": 40,
+   "size": 1
+  },
+  {
+   "name": "id41",
+   "label": "2/41 (W)",
+   "cls": 2,
+   "id": 41,
+   "size": 1
+  },
+  {
+   "name": "id42",
+   "label": "2/42 (%)",
+   "cls": 2,
+   "id": 42,
+   "size": 1
+  },
+  {
+   "name": "id43",
+   "label": "2/43 (%)",
+   "cls": 2,
+   "id": 43,
+   "size": 1
+  },
+  {
+   "name": "id44",
+   "label": "2/44 (bar)",
+   "cls": 2,
+   "id": 44,
+   "size": 1
+  },
+  {
+   "name": "id48",
+   "label": "2/48 (%)",
+   "cls": 2,
+   "id": 48,
+   "size": 1
+  },
+  {
+   "name": "id49",
+   "label": "2/49 (bar)",
+   "cls": 2,
+   "id": 49,
+   "size": 1
+  },
+  {
+   "name": "id50",
+   "label": "2/50 (%)",
+   "cls": 2,
+   "id": 50,
+   "size": 1
+  },
+  {
+   "name": "id51",
+   "label": "2/51 (V)",
+   "cls": 2,
+   "id": 51,
+   "size": 1
+  },
+  {
+   "name": "id53",
+   "label": "2/53 (%)",
+   "cls": 2,
+   "id": 53,
+   "size": 1
+  },
+  {
+   "name": "id54",
+   "label": "2/54 (%)",
+   "cls": 2,
+   "id": 54,
+   "size": 1
+  },
+  {
+   "name": "id56",
+   "label": "2/56 (W, 16-bit)",
+   "cls": 2,
+   "id": 56,
+   "size": 2
+  },
+  {
+   "name": "id58",
+   "label": "2/58 (degC)",
+   "cls": 2,
+   "id": 58,
+   "size": 1
+  },
+  {
+   "name": "id59",
+   "label": "2/59 (degC)",
+   "cls": 2,
+   "id": 59,
+   "size": 1
+  },
+  {
+   "name": "id60",
+   "label": "2/60 (bar)",
+   "cls": 2,
+   "id": 60,
+   "size": 1
+  },
+  {
+   "name": "id61",
+   "label": "2/61 (%)",
+   "cls": 2,
+   "id": 61,
+   "size": 1
+  },
+  {
+   "name": "id62",
+   "label": "2/62 (bar)",
+   "cls": 2,
+   "id": 62,
+   "size": 1
+  },
+  {
+   "name": "id63",
+   "label": "2/63 (degC)",
+   "cls": 2,
+   "id": 63,
+   "size": 1
+  },
+  {
+   "name": "id86",
+   "label": "2/86 (degC)",
+   "cls": 2,
+   "id": 86,
+   "size": 1
+  },
+  {
+   "name": "id88",
+   "label": "2/88 (%)",
+   "cls": 2,
+   "id": 88,
+   "size": 1
+  },
+  {
+   "name": "id91",
+   "label": "2/91 (%)",
+   "cls": 2,
+   "id": 91,
+   "size": 1
+  },
+  {
+   "name": "id102",
+   "label": "2/102 (h, 16-bit)",
+   "cls": 2,
+   "id": 102,
+   "size": 2
+  },
+  {
+   "name": "id113",
+   "label": "2/113 (bar)",
+   "cls": 2,
+   "id": 113,
+   "size": 1
+  },
+  {
+   "name": "id114",
+   "label": "2/114 (%)",
+   "cls": 2,
+   "id": 114,
+   "size": 1
+  },
+  {
+   "name": "id115",
+   "label": "2/115 (%)",
+   "cls": 2,
+   "id": 115,
+   "size": 1
+  },
+  {
+   "name": "id116",
+   "label": "2/116 (degC)",
+   "cls": 2,
+   "id": 116,
+   "size": 1
+  },
+  {
+   "name": "id117",
+   "label": "2/117 (degC)",
+   "cls": 2,
+   "id": 117,
+   "size": 1
+  },
+  {
+   "name": "id118",
+   "label": "2/118 (degC)",
+   "cls": 2,
+   "id": 118,
+   "size": 1
+  },
+  {
+   "name": "id119",
+   "label": "2/119 (degC)",
+   "cls": 2,
+   "id": 119,
+   "size": 1
+  },
+  {
+   "name": "id120",
+   "label": "2/120 (degC)",
+   "cls": 2,
+   "id": 120,
+   "size": 1
+  },
+  {
+   "name": "id121",
+   "label": "2/121 (m3, 32-bit)",
+   "cls": 2,
+   "id": 121,
+   "size": 4
+  },
+  {
+   "name": "id125",
+   "label": "2/125 (Wh/m3, 16-bit)",
+   "cls": 2,
+   "id": 125,
+   "size": 2
+  },
+  {
+   "name": "id151",
+   "label": "2/151 (kWh)",
+   "cls": 2,
+   "id": 151,
+   "size": 1
+  },
+  {
+   "name": "id152",
+   "label": "2/152 (kWh, 16-bit)",
+   "cls": 2,
+   "id": 152,
+   "size": 2
+  },
+  {
+   "name": "id177",
+   "label": "2/177 (min, 24-bit)",
+   "cls": 2,
+   "id": 177,
+   "size": 3
+  },
+  {
+   "name": "id180",
+   "label": "2/180 (min, 24-bit)",
+   "cls": 2,
+   "id": 180,
+   "size": 3
+  },
+  {
+   "name": "id183",
+   "label": "2/183 (min, 24-bit)",
+   "cls": 2,
+   "id": 183,
+   "size": 3
+  },
+  {
+   "name": "id186",
+   "label": "2/186 (min, 24-bit)",
+   "cls": 2,
+   "id": 186,
+   "size": 3
+  },
+  {
+   "name": "id189",
+   "label": "2/189 (min, 24-bit)",
+   "cls": 2,
+   "id": 189,
+   "size": 3
+  },
+  {
+   "name": "id192",
+   "label": "2/192 (min, 24-bit)",
+   "cls": 2,
+   "id": 192,
+   "size": 3
+  },
+  {
+   "name": "id196",
+   "label": "2/196 (%)",
+   "cls": 2,
+   "id": 196,
+   "size": 1
+  },
+  {
+   "name": "id199",
+   "label": "2/199 (degC)",
+   "cls": 2,
+   "id": 199,
+   "size": 1
+  },
+  {
+   "name": "id220",
+   "label": "2/220 (min, 24-bit)",
+   "cls": 2,
+   "id": 220,
+   "size": 3
+  },
+  {
+   "name": "id223",
+   "label": "2/223 (min, 24-bit)",
+   "cls": 2,
+   "id": 223,
+   "size": 3
+  },
+  {
+   "name": "id226",
+   "label": "2/226 (min, 24-bit)",
+   "cls": 2,
+   "id": 226,
+   "size": 3
+  },
+  {
+   "name": "id229",
+   "label": "2/229 (min, 24-bit)",
+   "cls": 2,
+   "id": 229,
+   "size": 3
+  },
+  {
+   "name": "id232",
+   "label": "2/232 (min, 24-bit)",
+   "cls": 2,
+   "id": 232,
+   "size": 3
+  }
+ ],
+ "decoders": {},
+ "commands": []
+}

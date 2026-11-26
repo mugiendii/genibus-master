@@ -1,0 +1,85 @@
+{
+  "name": "MP 204 motor protector",
+  "family": 7,
+  "type": 1,
+  "firmware_poll_ok": true,
+  "power_on_counter": "t_on",
+  "snapshot": ["v12", "v23", "v31", "i1", "i2", "i3"],
+  "phases": {"items": ["v12", "v23", "v31"], "low_ratio": 0.85, "low_abs": 50},
+  "on_recovery": "mp204",
+  "source": "Grundfos 'Operating the MP 204 Electronic Motor Protection Unit via GENIbus or G100', Ed. 2.28, May 2011 (as used by src/poll_table.c and lib/genibus/mp204.c). Item IDs are per product: do not reuse for other families.",
+  "notes": "Set up for a 3-phase motor. With a 1-phase motor the line voltages, i_asym and cos phi read n/a. t_mo1, i_asym and cos_phi are measured only with the motor on; r_insulation only with it off (101 = >1000 kOhm).",
+
+  "items": [
+    {"name": "v12",          "label": "Voltage L1-L2",       "cls": 2, "id": 29,  "size": 2},
+    {"name": "v23",          "label": "Voltage L2-L3",       "cls": 2, "id": 31,  "size": 2},
+    {"name": "v31",          "label": "Voltage L3-L1",       "cls": 2, "id": 33,  "size": 2},
+    {"name": "v_line",       "label": "Line voltage (mean)", "cls": 2, "id": 35,  "size": 2},
+    {"name": "i1",           "label": "Current L1",          "cls": 2, "id": 37,  "size": 2},
+    {"name": "i2",           "label": "Current L2",          "cls": 2, "id": 39,  "size": 2},
+    {"name": "i3",           "label": "Current L3",          "cls": 2, "id": 41,  "size": 2},
+    {"name": "i_line",       "label": "Current (mean)",      "cls": 2, "id": 43,  "size": 2},
+    {"name": "t_mo1",        "label": "Motor temp (Tempcon)","cls": 2, "id": 47,  "size": 1},
+    {"name": "t_mo2",        "label": "Motor temp (Pt sensor)","cls": 2, "id": 48, "size": 1},
+    {"name": "i_asym",       "label": "Current asymmetry",   "cls": 2, "id": 49,  "size": 1},
+    {"name": "f_line",       "label": "Frequency",           "cls": 2, "id": 58,  "size": 1},
+    {"name": "cos_phi",      "label": "cos phi",             "cls": 2, "id": 64,  "size": 1},
+    {"name": "p",            "label": "Power",               "cls": 2, "id": 65,  "size": 4},
+    {"name": "energy",       "label": "Energy",              "cls": 2, "id": 69,  "size": 4},
+    {"name": "t_run",        "label": "Running time",        "cls": 2, "id": 77,  "size": 3},
+    {"name": "t_on",         "label": "Power-on time",       "cls": 2, "id": 80,  "size": 3},
+    {"name": "start_cnt",    "label": "Number of starts",    "cls": 2, "id": 86,  "size": 3},
+    {"name": "r_insulation", "label": "Insulation resistance","cls": 2, "id": 94, "size": 1},
+    {"name": "act_mode1",    "label": "Mode (commands)",     "cls": 2, "id": 95,  "size": 1, "decode": "act_mode1"},
+    {"name": "act_mode2",    "label": "Mode (MP 204)",       "cls": 2, "id": 96,  "size": 1, "decode": "act_mode2"},
+    {"name": "alarm_code",   "label": "Alarm",               "cls": 2, "id": 144, "size": 1, "decode": "alarm"},
+    {"name": "warnings_1",   "label": "Warnings 1",          "cls": 2, "id": 145, "size": 1, "watch": true},
+    {"name": "warnings_2",   "label": "Warnings 2",          "cls": 2, "id": 146, "size": 1, "watch": true},
+    {"name": "warnings_3",   "label": "Warnings 3",          "cls": 2, "id": 147, "size": 1, "watch": true}
+  ],
+
+  "decoders": {
+    "act_mode1": {
+      "watch": true,
+      "fields": [
+        {"name": "mode",      "mask": 7, "shift": 0,
+         "values": {"0": "Started", "1": "TRIPPED - protection", "2": "TRIPPED - test / commanded", "3": "STOPPED - commanded (no alarm)"}},
+        {"name": "motor",     "mask": 1, "shift": 3, "values": {"0": "running", "1": "off"}},
+        {"name": "trip relay 95-96",   "mask": 1, "shift": 4, "values": {"0": "OPEN", "1": "closed"}},
+        {"name": "signal relay 97-98", "mask": 1, "shift": 5, "values": {"0": "open", "1": "closed"}},
+        {"name": "protection",         "mask": 1, "shift": 7, "values": {"0": "on", "1": "DISABLED"}}
+      ]
+    },
+    "act_mode2": {
+      "fields": [
+        {"name": "system",        "mask": 3, "shift": 0, "values": {"0": "power-up", "1": "operating", "2": "DEVICE FAULT"}},
+        {"name": "ready",         "mask": 1, "shift": 2, "values": {"0": "no", "1": "yes"}},
+        {"name": "pending alarm", "mask": 1, "shift": 3, "values": {"0": "no", "1": "yes"}}
+      ]
+    },
+    "alarm": {
+      "watch": true,
+      "values": {"0": "none", "2": "missing phase", "3": "PTC / thermal switch", "4": "too many auto restarts",
+                 "9": "phase sequence", "15": "communication", "18": "commanded trip",
+                 "20": "insulation resistance low", "32": "overvoltage", "40": "undervoltage",
+                 "48": "OVERLOAD (current)", "56": "UNDERLOAD (current)", "64": "overtemperature (Tempcon)",
+                 "71": "overtemperature (Pt100/1000)", "111": "CURRENT ASYMMETRY",
+                 "112": "cos phi max", "113": "cos phi min", "120": "aux winding",
+                 "123": "start capacitor", "124": "run capacitor"}
+    }
+  },
+
+  "alert": {"item": "act_mode1", "field": "mode", "normal": "Started",
+            "cause_item": "alarm_code"},
+
+  "commands": [
+    {"label": "Status (checked)", "send": "mp204", "kind": "read"},
+    {"label": "TRIP (like Test button)", "send": "mp204 trip", "kind": "warn",
+     "confirm": "Trip the MP 204?\n\nThe trip relay 95-96 opens: the motor stops / cannot start.\nThe firmware checks it is an MP 204 in 'started' first and reads the result back."},
+    {"label": "STOP (no alarm)", "send": "mp204 stop", "kind": "warn",
+     "confirm": "Stop the motor (TRIP_A)?\n\nThe trip relay opens without an alarm."},
+    {"label": "RESET - may START motor", "send": "mp204 reset", "kind": "danger",
+     "arm": {"expect": "armed_s", "then": "mp204 reset yes"},
+     "confirm": "Reset the MP 204?\n\nThis clears the trip and CLOSES the trip relay:\nTHE MOTOR MAY START IMMEDIATELY.\n\nOnly continue if the pump is safe to run."}
+  ]
+}

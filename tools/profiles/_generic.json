@@ -1,0 +1,13 @@
+{
+  "name": "Unknown / generic GENIbus unit",
+  "family": null,
+  "type": null,
+  "source": "No product profile. Read-only exploration only.",
+  "notes": "Item IDs are per product. Use 'Probe IDs' to list the class-2 (measured) IDs this unit knows, then add them to a new profile from the product's GENIbus functional profile. No commands are offered: sending class-3 commands without the profile could start, stop or reconfigure equipment.",
+  "items": [
+    {"name": "unit_family", "label": "Unit family", "cls": 2, "id": 148, "size": 1},
+    {"name": "unit_type",   "label": "Unit type",   "cls": 2, "id": 149, "size": 1}
+  ],
+  "decoders": {},
+  "commands": []
+}
